@@ -18,6 +18,26 @@ For some reason, Alice is still unconvinced by Bob’s argument, so she requires
 #include<iostream>
 using namespace std;
 
+int alpha_code_iteratibe(int* input,int size){
+	int* output = new int[size+1];
+	output[0]=1;
+	output[1]=1;
+
+	for(int i=2;i<=size;i++){
+		output[i] = output[i-1];
+		if(input[i-2]*10 + input[i-1] <= 26){
+			output[i] += output[i-2];
+		}
+
+	}
+	int ans = output[size];
+	delete [] output;
+	return ans;
+
+
+}
+
+
 
 
 
@@ -59,8 +79,12 @@ int main(){
 	for(int i=0;i<size;i++){
 		cin>>input[i];
 	}
-	int result = alpha_code(input,size);
-	cout<<result;
+	int result1 = alpha_code(input,size);
+	
+	int result2 = alpha_code_iteratibe(input,size);
+
+	cout<<result1<<endl;
+	cout<<result2<<endl;
 
 	return 0;
 
