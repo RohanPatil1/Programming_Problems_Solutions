@@ -18,7 +18,7 @@ For some reason, Alice is still unconvinced by Bob’s argument, so she requires
 #include<iostream>
 using namespace std;
 
-int alpha_code_iteratibe(int* input,int size){
+int alpha_code_iterative(int* input,int size){
 	int* output = new int[size+1];
 	output[0]=1;
 	output[1]=1;
